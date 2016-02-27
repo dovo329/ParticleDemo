@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gAz-vL-4dt">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+    </dependencies>
+    <scenes>
+        <!--Select Preset-->
+        <scene sceneID="Fic-yc-kg3">
+            <objects>
+                <viewController title="Select Preset" automaticallyAdjustsScrollViewInsets="NO" id="MYI-Cm-svC" customClass="SelectPresetViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mUc-xr-kgd"/>
+                        <viewControllerLayoutGuide type="bottom" id="kee-J7-Wev"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="U9w-GK-45k">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hFD-JC-wYQ">
+                                <rect key="frame" x="0.0" y="44" width="320" height="436"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="selectPresetCellId" id="DqD-zE-0Wl">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DqD-zE-0Wl" id="JbB-TR-ptR">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="MYI-Cm-svC" id="dfR-gm-Mim"/>
+                                    <outlet property="delegate" destination="MYI-Cm-svC" id="yNx-gA-Jox"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hFD-JC-wYQ" firstAttribute="top" secondItem="mUc-xr-kgd" secondAttribute="bottom" id="4Kw-hR-bQY"/>
+                            <constraint firstAttribute="trailing" secondItem="hFD-JC-wYQ" secondAttribute="trailing" id="HbC-R2-vGX"/>
+                            <constraint firstItem="kee-J7-Wev" firstAttribute="top" secondItem="hFD-JC-wYQ" secondAttribute="bottom" id="Nll-8M-gIT"/>
+                            <constraint firstItem="hFD-JC-wYQ" firstAttribute="leading" secondItem="U9w-GK-45k" secondAttribute="leading" id="OGx-uz-9Ei"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Select Preset" id="VNi-AU-xNL"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QEI-cK-m2w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2017" y="136"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="We9-vS-yDa">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gAz-vL-4dt" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Buz-yO-JGv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="MYI-Cm-svC" kind="relationship" relationship="rootViewController" id="ZnX-Vq-A6n"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YGW-uc-gOj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1543" y="136"/>
+        </scene>
+    </scenes>
+</document>
