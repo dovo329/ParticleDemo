@@ -39,9 +39,11 @@
     self.color1 = [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
     self.color2 = [self invertColor:self.color1];
     
+    self.view.backgroundColor = [UIColor whiteColor];
+    
     self.emitterPreviewView.backgroundColor = self.color1;
     
-    self.tableView.backgroundColor = self.color1;
+    self.tableView.backgroundColor = self.color2;
     
     [self initEmitterCells];
     
@@ -192,7 +194,12 @@
     
     cell.backgroundColor = self.color1;
     cell.textLabel.text = self.tableViewDataSource[indexPath.row];
-    cell.textLabel.textColor = self.color2;
+    
+    if ([self getBrightnessOfColor:self.color1] < 0.5) {
+        cell.textLabel.textColor = [UIColor whiteColor];
+    } else {
+        cell.textLabel.textColor = [UIColor blackColor];
+    }
     
     return cell;
 }
@@ -200,7 +207,7 @@
 
 #pragma mark - UITableViewDelegate methods
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 
@@ -209,6 +216,13 @@
     CGFloat r,g,b,a;
     [color getRed:&r green:&g blue:&b alpha:&a];
     return [UIColor colorWithRed:1.-r green:1.-g blue:1.-b alpha:a];
+}
+
+
+-(CGFloat)getBrightnessOfColor:(UIColor *)color {
+    CGFloat h,s,b,a;
+    [color getHue:&h saturation:&s brightness:&b alpha:&a];
+    return b;
 }
 
 @end
