@@ -31,7 +31,8 @@
       @"Fire",
       @"Smoke",
       @"Sparkler",
-      @"Particle Man"
+      @"ExplosionRing",
+      @"Zany"
     ];
 }
 

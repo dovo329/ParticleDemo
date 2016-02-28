@@ -17,6 +17,7 @@
 @property (nonatomic, strong) NSArray *tableViewDataSource;
 @property (nonatomic, strong) UIColor *color1;
 @property (nonatomic, strong) UIColor *color2;
+@property (nonatomic, strong) NSTimer *cycleTimer;
 
 @end
 
@@ -26,6 +27,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    if (self.pList == nil) {
+        NSAssert(NO, @"particle pList is nil");
+    }
     //NSLog(@"ViewParticleViewController plist is %@", self.p
     
     //self.emitterPreviewView.backgroundColor = [UIColor colorWithRed:0. green:0. blue:1. alpha:0.1];
@@ -220,6 +224,46 @@
 -(void)viewDidAppear:(BOOL)animated {
     
     [self initEmitterLayer];
+    
+    [self doTimer];
+}
+
+
+-(void)doTimer {
+    
+    NSDictionary *timerDict = [self.pList objectForKey:@"timer"];
+    if (timerDict != nil) {
+        
+        double duration = [[timerDict objectForKey:@"duration"] doubleValue];
+        double dutyCycle = [[timerDict objectForKey:@"dutyCycle"] doubleValue];
+        
+        self.cycleTimer = [NSTimer scheduledTimerWithTimeInterval:duration target:self selector:@selector(turnOnEmitter) userInfo:nil repeats:YES];
+        
+        [self performSelector:@selector(shutOffEmitter) withObject:self afterDelay:(dutyCycle*duration)];
+    }
+}
+
+
+-(void)turnOnEmitter {
+    
+    self.emitterLayer.lifetime = 1.0;
+    
+    NSDictionary *timerDict = [self.pList objectForKey:@"timer"];
+    double duration = [[timerDict objectForKey:@"duration"] doubleValue];
+    double dutyCycle = [[timerDict objectForKey:@"dutyCycle"] doubleValue];
+    
+    [self performSelector:@selector(shutOffEmitter) withObject:self afterDelay:(dutyCycle*duration)];
+}
+
+
+-(void)dealloc {
+    [self.cycleTimer invalidate];
+    self.cycleTimer = nil;
+}
+
+
+-(void)shutOffEmitter {
+    self.emitterLayer.lifetime = 0.0;
 }
 
 

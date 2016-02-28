@@ -1,0 +1,47 @@
+{
+    "cells":[
+        {
+        "contents":"spark",
+        "color":[0.702, 0.235, 1.0, 1.0],
+        "redRange":0.0,
+        "greenRange":0.0,
+        "blueRange":0.0,
+        "alphaRange":0.0,
+        "redSpeed":1.0,
+        "greenSpeed":0.5,
+        "blueSpeed":-1.0,
+        "alphaSpeed":-1.0,
+        "scale":0.4,
+        "scaleRange":0.2,
+        "name":"ExplosionRing",
+        "spin":0.0,
+        "spinRange":0.0,
+        "emissionLatitude":0.0,
+        "emissionLongitude":0.0,
+        "emissionRange":0.0,
+        "lifetime":1.3,
+        "lifetimeRange":0.0,
+        "birthRate":2000,
+        "scaleSpeed":0.0,
+        "velocity":100,
+        "velocityRange":0,
+        "xAcceleration":0,
+        "yAcceleration":0,
+        "zAcceleration":0
+        }
+    ],
+    
+    "layer":{
+        "size":0.001,
+        "shape":"circle",
+	"emitterMode":"outline",
+	"renderMode":"additive"
+    },
+    
+    "backgroundColor":[0.0, 0.0, 0.0, 1.0],
+
+    "timer":{
+	"duration":2.0,
+	"dutyCycle":0.1
+    }
+}
