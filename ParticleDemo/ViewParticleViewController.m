@@ -190,12 +190,6 @@
     }
     
     
-    /*NSString * const kCAEmitterLayerUnordered;
-    NSString * const kCAEmitterLayerOldestFirst;
-    NSString * const kCAEmitterLayerOldestLast;
-    NSString * const kCAEmitterLayerBackToFront;
-    NSString * const kCAEmitterLayerAdditive;*/
-    
     NSString *renderMode = [layerDict objectForKey:@"renderMode"];
     if ([renderMode isEqualToString:@"unordered"]) {
         self.emitterLayer.renderMode = kCAEmitterLayerUnordered;
