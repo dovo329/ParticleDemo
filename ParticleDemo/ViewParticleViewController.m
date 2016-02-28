@@ -15,6 +15,8 @@
 @property (nonatomic, strong) NSMutableArray *emitterCellsArr;
 @property (nonatomic, strong) CAEmitterLayer *emitterLayer;
 @property (nonatomic, strong) NSArray *tableViewDataSource;
+@property (nonatomic, strong) UIColor *color1;
+@property (nonatomic, strong) UIColor *color2;
 
 @end
 
@@ -33,7 +35,13 @@
     double green = [colorArr[1] doubleValue];
     double blue = [colorArr[2] doubleValue];
     double alpha = [colorArr[3] doubleValue];
-    self.emitterPreviewView.backgroundColor = [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
+    
+    self.color1 = [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
+    self.color2 = [self invertColor:self.color1];
+    
+    self.emitterPreviewView.backgroundColor = self.color1;
+    
+    self.tableView.backgroundColor = self.color1;
     
     [self initEmitterCells];
     
@@ -130,7 +138,7 @@
     [self.emitterPreviewView.layer addSublayer:self.emitterLayer];
     
     double sizeMult = [[layerDict objectForKey:@"size"] doubleValue];
-    double emitterDim = rect.size.height * sizeMult;
+    double emitterDim = rect.size.width * sizeMult;
     
     self.emitterLayer.emitterPosition = CGPointMake(rect.size.width/2., rect.size.height/2.);
     
@@ -182,7 +190,9 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"paramCellId"];
     
+    cell.backgroundColor = self.color1;
     cell.textLabel.text = self.tableViewDataSource[indexPath.row];
+    cell.textLabel.textColor = self.color2;
     
     return cell;
 }
@@ -191,6 +201,14 @@
 #pragma mark - UITableViewDelegate methods
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+}
+
+
+-(UIColor *) invertColor:(UIColor *)color
+{
+    CGFloat r,g,b,a;
+    [color getRed:&r green:&g blue:&b alpha:&a];
+    return [UIColor colorWithRed:1.-r green:1.-g blue:1.-b alpha:a];
 }
 
 @end

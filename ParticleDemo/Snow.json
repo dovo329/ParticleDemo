@@ -1,0 +1,40 @@
+{
+    "cells":[
+        {
+        "contents":"spark",
+        "color":[1.0, 1.0, 1.0, 1.0],
+        "redRange":0.0,
+        "greenRange":0.0,
+        "blueRange":0.0,
+        "alphaRange":0.0,
+        "redSpeed":0.0,
+        "greenSpeed":0.0,
+        "blueSpeed":0.0,
+        "alphaSpeed":0.0,
+        "scale":0.1,
+        "scaleRange":0.1,
+        "name":"Snow",
+        "spin":0.0,
+        "spinRange":0.0,
+        "emissionLatitude":0.0,
+        "emissionLongitude": 3.14159,
+        "emissionRange":0.383972,
+        "lifetime":8.0,
+        "lifetimeRange":0,
+        "birthRate":40,
+        "scaleSpeed":0.0,
+        "velocity":80,
+        "velocityRange":100,
+        "xAcceleration":0,
+        "yAcceleration":10,
+        "zAcceleration":0
+        }
+    ],
+    
+    "layer":{
+        "size":1.0,
+        "shape":"line"
+    },
+    
+    "backgroundColor":[0.0, 0.0, 0.0, 1.0]
+}
