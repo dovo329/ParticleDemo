@@ -26,7 +26,14 @@
     
     //NSLog(@"ViewParticleViewController plist is %@", self.p
     
-    self.emitterPreviewView.backgroundColor = [UIColor colorWithRed:0. green:0. blue:1. alpha:0.1];
+    //self.emitterPreviewView.backgroundColor = [UIColor colorWithRed:0. green:0. blue:1. alpha:0.1];
+    
+    NSArray *colorArr = [self.pList objectForKey:@"backgroundColor"];
+    double red = [colorArr[0] doubleValue];
+    double green = [colorArr[1] doubleValue];
+    double blue = [colorArr[2] doubleValue];
+    double alpha = [colorArr[3] doubleValue];
+    self.emitterPreviewView.backgroundColor = [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
     
     [self initEmitterCells];
     
