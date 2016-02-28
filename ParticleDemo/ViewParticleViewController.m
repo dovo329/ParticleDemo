@@ -147,7 +147,6 @@
     self.emitterLayer.emitterSize = CGSizeMake(emitterDim, emitterDim);
 
     NSString *shape = [layerDict objectForKey:@"shape"];
-    
     if ([shape isEqualToString:@"point"]) {
         self.emitterLayer.emitterShape = kCAEmitterLayerPoint;
 
@@ -170,6 +169,54 @@
         NSAssert(NO, @"Unknown emitter layer shape");
         self.emitterLayer.emitterShape = kCAEmitterLayerRectangle;
     }
+    
+
+    NSString *emitterMode = [layerDict objectForKey:@"emitterMode"];
+    if ([emitterMode isEqualToString:@"points"]) {
+        self.emitterLayer.emitterMode = kCAEmitterLayerPoints;
+
+    } else if ([emitterMode isEqualToString:@"outline"]) {
+        self.emitterLayer.emitterMode = kCAEmitterLayerOutline;
+        
+    } else if ([emitterMode isEqualToString:@"surface"]) {
+        self.emitterLayer.emitterMode = kCAEmitterLayerSurface;
+        
+    } else if ([emitterMode isEqualToString:@"volume"]) {
+        self.emitterLayer.emitterMode = kCAEmitterLayerVolume;
+        
+    } else {
+        NSAssert(NO, @"Unknown emitter layer emitterMode");
+        self.emitterLayer.emitterMode = kCAEmitterLayerSurface;
+    }
+    
+    
+    /*NSString * const kCAEmitterLayerUnordered;
+    NSString * const kCAEmitterLayerOldestFirst;
+    NSString * const kCAEmitterLayerOldestLast;
+    NSString * const kCAEmitterLayerBackToFront;
+    NSString * const kCAEmitterLayerAdditive;*/
+    
+    NSString *renderMode = [layerDict objectForKey:@"renderMode"];
+    if ([renderMode isEqualToString:@"unordered"]) {
+        self.emitterLayer.renderMode = kCAEmitterLayerUnordered;
+
+    } else if ([renderMode isEqualToString:@"oldestFirst"]) {
+        self.emitterLayer.renderMode = kCAEmitterLayerOldestFirst;
+        
+    } else if ([renderMode isEqualToString:@"oldestLast"]) {
+        self.emitterLayer.renderMode = kCAEmitterLayerOldestLast;
+        
+    } else if ([renderMode isEqualToString:@"backToFront"]) {
+        self.emitterLayer.renderMode = kCAEmitterLayerBackToFront;
+        
+    } else if ([renderMode isEqualToString:@"additive"]) {
+        self.emitterLayer.renderMode = kCAEmitterLayerAdditive;
+        
+    } else {
+        NSAssert(NO, @"Unknown emitter layer renderMode");
+        self.emitterLayer.renderMode = kCAEmitterLayerUnordered;
+    }
+    
         
     [self.emitterPreviewView.layer addSublayer:self.emitterLayer];
     [self.view bringSubviewToFront:self.emitterPreviewView];

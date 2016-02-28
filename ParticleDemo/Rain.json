@@ -33,7 +33,9 @@
     
     "layer":{
         "size":1.0,
-        "shape":"line"
+        "shape":"line",
+        "emitterMode":"surface",
+        "renderMode":"unordered"
     },
     
     "backgroundColor":[0.5, 0.5, 0.5, 1.0]

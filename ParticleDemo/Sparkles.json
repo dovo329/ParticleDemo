@@ -33,7 +33,9 @@
     
     "layer":{
         "size":0.2,
-        "shape":"rectangle"
+        "shape":"rectangle",
+        "emitterMode":"surface",
+        "renderMode":"unordered"
     },
     
     "backgroundColor":[0.0, 0.0, 1.0, 0.1]
