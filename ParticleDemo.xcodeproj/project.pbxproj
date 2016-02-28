@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A55780391C825D5E00B8E7AE /* ViewParticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A55780381C825D5E00B8E7AE /* ViewParticleViewController.m */; };
+		A557803C1C82642900B8E7AE /* Sparkles.json in Resources */ = {isa = PBXBuildFile; fileRef = A557803B1C82642900B8E7AE /* Sparkles.json */; };
 		A58310721C82533E0018825A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A58310711C82533E0018825A /* main.m */; };
 		A58310751C82533E0018825A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A58310741C82533E0018825A /* AppDelegate.m */; };
 		A583107B1C82533E0018825A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A58310791C82533E0018825A /* Main.storyboard */; };
@@ -16,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A55780371C825D5E00B8E7AE /* ViewParticleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewParticleViewController.h; sourceTree = "<group>"; };
+		A55780381C825D5E00B8E7AE /* ViewParticleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewParticleViewController.m; sourceTree = "<group>"; };
+		A557803B1C82642900B8E7AE /* Sparkles.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Sparkles.json; sourceTree = "<group>"; };
 		A583106D1C82533E0018825A /* ParticleDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParticleDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A58310711C82533E0018825A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A58310731C82533E0018825A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -39,6 +44,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A557803D1C82642E00B8E7AE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		A58310641C82533E0018825A = {
 			isa = PBXGroup;
 			children = (
@@ -62,10 +74,14 @@
 				A58310741C82533E0018825A /* AppDelegate.m */,
 				A58310871C8258AA0018825A /* SelectPresetViewController.h */,
 				A58310881C8258AA0018825A /* SelectPresetViewController.m */,
+				A55780371C825D5E00B8E7AE /* ViewParticleViewController.h */,
+				A55780381C825D5E00B8E7AE /* ViewParticleViewController.m */,
 				A58310791C82533E0018825A /* Main.storyboard */,
 				A583107C1C82533E0018825A /* Assets.xcassets */,
 				A583107E1C82533E0018825A /* LaunchScreen.storyboard */,
 				A58310811C82533E0018825A /* Info.plist */,
+				A557803B1C82642900B8E7AE /* Sparkles.json */,
+				A557803D1C82642E00B8E7AE /* Resources */,
 				A58310701C82533E0018825A /* Supporting Files */,
 			);
 			path = ParticleDemo;
@@ -138,6 +154,7 @@
 			files = (
 				A58310801C82533E0018825A /* LaunchScreen.storyboard in Resources */,
 				A583107D1C82533E0018825A /* Assets.xcassets in Resources */,
+				A557803C1C82642900B8E7AE /* Sparkles.json in Resources */,
 				A583107B1C82533E0018825A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -150,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A58310751C82533E0018825A /* AppDelegate.m in Sources */,
+				A55780391C825D5E00B8E7AE /* ViewParticleViewController.m in Sources */,
 				A58310721C82533E0018825A /* main.m in Sources */,
 				A58310891C8258AA0018825A /* SelectPresetViewController.m in Sources */,
 			);
@@ -298,6 +316,7 @@
 				A58310861C82533E0018825A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

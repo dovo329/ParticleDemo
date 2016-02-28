@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Select Preset-->
@@ -51,10 +52,75 @@
                     <navigationItem key="navigationItem" title="Select Preset" id="VNi-AU-xNL"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <segue destination="zcJ-c9-gRs" kind="show" identifier="goViewParticleSegueId" id="kiH-1Z-49d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QEI-cK-m2w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2017" y="136"/>
+            <point key="canvasLocation" x="2064" y="136"/>
+        </scene>
+        <!--View Particle View Controller-->
+        <scene sceneID="0Gw-KI-AhW">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="zcJ-c9-gRs" customClass="ViewParticleViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wIq-A9-njs"/>
+                        <viewControllerLayoutGuide type="bottom" id="o08-P2-TvP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="s4Q-gy-Qmk">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OwL-Bt-UhQ" userLabel="emitterPreviewView">
+                                <rect key="frame" x="0.0" y="44" width="320" height="192"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7mA-8J-3sK" userLabel="parameterAdjustTableView">
+                                <rect key="frame" x="0.0" y="244" width="320" height="236"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="paramCellId" id="C4s-H7-8wz">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="C4s-H7-8wz" id="S09-bo-Iwc">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="zcJ-c9-gRs" id="jdF-Fy-J5I"/>
+                                    <outlet property="delegate" destination="zcJ-c9-gRs" id="xfo-sI-Zxz"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="OwL-Bt-UhQ" secondAttribute="trailing" id="2pi-ao-ZeS"/>
+                            <constraint firstItem="7mA-8J-3sK" firstAttribute="top" secondItem="OwL-Bt-UhQ" secondAttribute="bottom" constant="8" id="APo-Tw-HEh"/>
+                            <constraint firstAttribute="trailing" secondItem="7mA-8J-3sK" secondAttribute="trailing" id="EKa-l0-xj5"/>
+                            <constraint firstItem="OwL-Bt-UhQ" firstAttribute="leading" secondItem="s4Q-gy-Qmk" secondAttribute="leading" id="J0U-S9-K0v"/>
+                            <constraint firstItem="OwL-Bt-UhQ" firstAttribute="height" secondItem="s4Q-gy-Qmk" secondAttribute="height" multiplier="0.4" id="K0T-Rr-dJr"/>
+                            <constraint firstItem="o08-P2-TvP" firstAttribute="top" secondItem="7mA-8J-3sK" secondAttribute="bottom" id="hZw-DP-yrx"/>
+                            <constraint firstItem="7mA-8J-3sK" firstAttribute="leading" secondItem="s4Q-gy-Qmk" secondAttribute="leading" id="l8S-UK-22d"/>
+                            <constraint firstItem="OwL-Bt-UhQ" firstAttribute="top" secondItem="wIq-A9-njs" secondAttribute="bottom" id="tf8-Qv-eCc"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="emitterPreviewView" destination="OwL-Bt-UhQ" id="tAB-ZC-erW"/>
+                        <outlet property="tableView" destination="7mA-8J-3sK" id="KvT-iC-Kxk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ccw-z9-MgX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2484" y="136"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="We9-vS-yDa">
