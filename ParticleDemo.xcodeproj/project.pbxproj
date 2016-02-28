@@ -10,6 +10,7 @@
 		A55780391C825D5E00B8E7AE /* ViewParticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A55780381C825D5E00B8E7AE /* ViewParticleViewController.m */; };
 		A557803C1C82642900B8E7AE /* Sparkles.json in Resources */ = {isa = PBXBuildFile; fileRef = A557803B1C82642900B8E7AE /* Sparkles.json */; };
 		A557803F1C82821700B8E7AE /* Snow.json in Resources */ = {isa = PBXBuildFile; fileRef = A557803E1C82821700B8E7AE /* Snow.json */; };
+		A55780431C82894A00B8E7AE /* Rain.json in Resources */ = {isa = PBXBuildFile; fileRef = A55780421C82894A00B8E7AE /* Rain.json */; };
 		A58310721C82533E0018825A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A58310711C82533E0018825A /* main.m */; };
 		A58310751C82533E0018825A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A58310741C82533E0018825A /* AppDelegate.m */; };
 		A583107B1C82533E0018825A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A58310791C82533E0018825A /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 		A55780381C825D5E00B8E7AE /* ViewParticleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewParticleViewController.m; sourceTree = "<group>"; };
 		A557803B1C82642900B8E7AE /* Sparkles.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Sparkles.json; sourceTree = "<group>"; };
 		A557803E1C82821700B8E7AE /* Snow.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Snow.json; sourceTree = "<group>"; };
+		A55780421C82894A00B8E7AE /* Rain.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Rain.json; sourceTree = "<group>"; };
 		A583106D1C82533E0018825A /* ParticleDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParticleDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A58310711C82533E0018825A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A58310731C82533E0018825A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -46,13 +48,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A557803D1C82642E00B8E7AE /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
 		A58310641C82533E0018825A = {
 			isa = PBXGroup;
 			children = (
@@ -84,7 +79,7 @@
 				A58310811C82533E0018825A /* Info.plist */,
 				A557803B1C82642900B8E7AE /* Sparkles.json */,
 				A557803E1C82821700B8E7AE /* Snow.json */,
-				A557803D1C82642E00B8E7AE /* Resources */,
+				A55780421C82894A00B8E7AE /* Rain.json */,
 				A58310701C82533E0018825A /* Supporting Files */,
 			);
 			path = ParticleDemo;
@@ -160,6 +155,7 @@
 				A557803F1C82821700B8E7AE /* Snow.json in Resources */,
 				A557803C1C82642900B8E7AE /* Sparkles.json in Resources */,
 				A583107B1C82533E0018825A /* Main.storyboard in Resources */,
+				A55780431C82894A00B8E7AE /* Rain.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
