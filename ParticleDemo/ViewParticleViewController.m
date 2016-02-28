@@ -38,42 +38,139 @@
 
 
 -(void)initEmitterCell {
-        self.emitterCell = [CAEmitterCell emitterCell];
+   
+    /*
+    contents
+
+    //contentsRect
+
+    //emitterCells
+
+
+    //enabled
+
+    color
+
+    redRange
+
+    greenRange
+
+    blueRange
+
+    alphaRange
+
+    redSpeed
+
+    greenSpeed
+
+    blueSpeed
+
+    alphaSpeed
+
+    magnificationFilter
+
+    minificationFilter
+
+    minificationFilterBias
+
+    scale
+
+    scaleRange
+
+    name
+
+    style
+
+    spin
+
+    spinRange
+
+    emissionLatitude
+
+    emissionLongitude
+
+    emissionRange
+
+    lifetime
+
+    lifetimeRange
+
+    birthRate
+
+    scaleSpeed
+
+    velocity
+
+    velocityRange
+
+    xAcceleration
+
+    yAcceleration
+
+    zAcceleration
+*/
+    
+    self.emitterCell = [CAEmitterCell emitterCell];
+    
     UIImage *cellImage = [UIImage imageNamed:[self.pList objectForKey:@"contents"]];
     self.emitterCell.contents = (__bridge id _Nullable)(cellImage.CGImage);
-    self.emitterCell.name = [self.pList objectForKey:@"name"];
-    NSLog(@"self.emitterCell.name=%@", self.emitterCell.name);
-    self.emitterCell.birthRate = [[self.pList objectForKey:@"birthRate"] doubleValue];
-    self.emitterCell.lifetime = [[self.pList objectForKey:@"lifetime"] doubleValue];
-    self.emitterCell.lifetimeRange = [[self.pList objectForKey:@"lifetimeRange"] doubleValue];
+    
     NSArray *colorArr = [self.pList objectForKey:@"color"];
     double red   = [colorArr[0] doubleValue];
     double green = [colorArr[1] doubleValue];
     double blue  = [colorArr[2] doubleValue];
     double alpha = [colorArr[3] doubleValue];
-    
     self.emitterCell.color = [UIColor colorWithRed:red green:green blue:blue alpha:alpha].CGColor;
     
     self.emitterCell.redRange = [[self.pList objectForKey:@"redRange"] doubleValue];
-    self.emitterCell.redSpeed = [[self.pList objectForKey:@"redSpeed"] doubleValue];
-    
-    self.emitterCell.blueRange = [[self.pList objectForKey:@"blueRange"] doubleValue];
-    self.emitterCell.blueSpeed = [[self.pList objectForKey:@"blueSpeed"] doubleValue];
     
     self.emitterCell.greenRange = [[self.pList objectForKey:@"greenRange"] doubleValue];
+    
+    self.emitterCell.blueRange = [[self.pList objectForKey:@"blueRange"] doubleValue];
+    
+    self.emitterCell.alphaRange = [[self.pList objectForKey:@"alphaRange"] doubleValue];
+    
+    self.emitterCell.redSpeed = [[self.pList objectForKey:@"redSpeed"] doubleValue];
+    
     self.emitterCell.greenSpeed = [[self.pList objectForKey:@"greenSpeed"] doubleValue];
     
+    self.emitterCell.blueSpeed = [[self.pList objectForKey:@"blueSpeed"] doubleValue];
+    
     self.emitterCell.alphaSpeed = [[self.pList objectForKey:@"alphaSpeed"] doubleValue];
+    
+    self.emitterCell.scale = [[self.pList objectForKey:@"scale"] doubleValue];
+    
+    self.emitterCell.scaleRange = [[self.pList objectForKey:@"scaleRange"] doubleValue];
+    
+    self.emitterCell.name = [self.pList objectForKey:@"name"];
+    //NSLog(@"self.emitterCell.name=%@", self.emitterCell.name);
+    
+    self.emitterCell.spin = [[self.pList objectForKey:@"spin"] doubleValue];
+    
+    self.emitterCell.spinRange = [[self.pList objectForKey:@"spinRange"] doubleValue];
+    
+    self.emitterCell.emissionLongitude = [[self.pList objectForKey:@"emissionLatitude"] doubleValue];
+    
+    self.emitterCell.emissionLongitude = [[self.pList objectForKey:@"emissionLongitude"] doubleValue];
+    
+    self.emitterCell.emissionRange = [[self.pList objectForKey:@"emissionRange"] doubleValue];
+    
+    self.emitterCell.lifetime = [[self.pList objectForKey:@"lifetime"] doubleValue];
+    self.emitterCell.lifetimeRange = [[self.pList objectForKey:@"lifetimeRange"] doubleValue];
+    
+    self.emitterCell.birthRate = [[self.pList objectForKey:@"birthRate"] doubleValue];
+    
+    self.emitterCell.scaleSpeed = [[self.pList objectForKey:@"scaleSpeed"] doubleValue];
 
     self.emitterCell.velocity = [[self.pList objectForKey:@"velocity"] doubleValue];
+    
     self.emitterCell.velocityRange = [[self.pList objectForKey:@"velocityRange"] doubleValue];
+
+    self.emitterCell.xAcceleration = [[self.pList objectForKey:@"xAcceleration"] doubleValue];
     
     self.emitterCell.yAcceleration = [[self.pList objectForKey:@"yAcceleration"] doubleValue];
-    self.emitterCell.emissionLongitude = [[self.pList objectForKey:@"emissionLongitude"] doubleValue];
-    self.emitterCell.emissionRange = [[self.pList objectForKey:@"emissionRange"] doubleValue];
-    self.emitterCell.scale = [[self.pList objectForKey:@"scale"] doubleValue];
-    self.emitterCell.scaleSpeed = [[self.pList objectForKey:@"scaleSpeed"] doubleValue];
-    self.emitterCell.scaleRange = [[self.pList objectForKey:@"scaleRange"] doubleValue];
+    
+    self.emitterCell.zAcceleration = [[self.pList objectForKey:@"zAcceleration"] doubleValue];
 }
 
 
