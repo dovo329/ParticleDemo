@@ -32,7 +32,7 @@
       @"Smoke",
       @"Sparkler",
       @"ExplosionRing",
-      @"Zany"
+      @"ParticleMan"
     ];
 }
 

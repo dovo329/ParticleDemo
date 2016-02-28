@@ -15,6 +15,7 @@
 		A55780471C829A8400B8E7AE /* Smoke.json in Resources */ = {isa = PBXBuildFile; fileRef = A55780461C829A8400B8E7AE /* Smoke.json */; };
 		A55780491C829D2E00B8E7AE /* Sparkler.json in Resources */ = {isa = PBXBuildFile; fileRef = A55780481C829D2E00B8E7AE /* Sparkler.json */; };
 		A557804B1C82A08A00B8E7AE /* ExplosionRing.json in Resources */ = {isa = PBXBuildFile; fileRef = A557804A1C82A08A00B8E7AE /* ExplosionRing.json */; };
+		A557804D1C82ADAE00B8E7AE /* ParticleMan.json in Resources */ = {isa = PBXBuildFile; fileRef = A557804C1C82ADAE00B8E7AE /* ParticleMan.json */; };
 		A58310721C82533E0018825A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A58310711C82533E0018825A /* main.m */; };
 		A58310751C82533E0018825A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A58310741C82533E0018825A /* AppDelegate.m */; };
 		A583107B1C82533E0018825A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A58310791C82533E0018825A /* Main.storyboard */; };
@@ -33,6 +34,7 @@
 		A55780461C829A8400B8E7AE /* Smoke.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Smoke.json; sourceTree = "<group>"; };
 		A55780481C829D2E00B8E7AE /* Sparkler.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Sparkler.json; sourceTree = "<group>"; };
 		A557804A1C82A08A00B8E7AE /* ExplosionRing.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ExplosionRing.json; sourceTree = "<group>"; };
+		A557804C1C82ADAE00B8E7AE /* ParticleMan.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ParticleMan.json; sourceTree = "<group>"; };
 		A583106D1C82533E0018825A /* ParticleDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParticleDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A58310711C82533E0018825A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A58310731C82533E0018825A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				A55780461C829A8400B8E7AE /* Smoke.json */,
 				A55780481C829D2E00B8E7AE /* Sparkler.json */,
 				A557804A1C82A08A00B8E7AE /* ExplosionRing.json */,
+				A557804C1C82ADAE00B8E7AE /* ParticleMan.json */,
 				A58310701C82533E0018825A /* Supporting Files */,
 			);
 			path = ParticleDemo;
@@ -166,6 +169,7 @@
 				A55780471C829A8400B8E7AE /* Smoke.json in Resources */,
 				A583107D1C82533E0018825A /* Assets.xcassets in Resources */,
 				A557803F1C82821700B8E7AE /* Snow.json in Resources */,
+				A557804D1C82ADAE00B8E7AE /* ParticleMan.json in Resources */,
 				A55780491C829D2E00B8E7AE /* Sparkler.json in Resources */,
 				A557804B1C82A08A00B8E7AE /* ExplosionRing.json in Resources */,
 				A55780451C8298AC00B8E7AE /* Fire.json in Resources */,
