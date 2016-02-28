@@ -1,0 +1,42 @@
+{
+    "cells":[
+        {
+        "contents":"spark",
+        "color":[1.0, 0.702, 0.235, 1.0],
+        "redRange":0.0,
+        "greenRange":0.0,
+        "blueRange":0.0,
+        "alphaRange":0.2,
+        "redSpeed":0.0,
+        "greenSpeed":0.0,
+        "blueSpeed":0.0,
+        "alphaSpeed":-1.0,
+        "scale":0.2,
+        "scaleRange":0.1,
+        "name":"Sparkler",
+        "spin":0.0,
+        "spinRange":0.0,
+        "emissionLatitude":0.0,
+        "emissionLongitude":0.0,
+        "emissionRange":6.28319,
+        "lifetime":0.25,
+        "lifetimeRange":0,
+        "birthRate":2000,
+        "scaleSpeed":-0.4,
+        "velocity":500,
+        "velocityRange":500,
+        "xAcceleration":0,
+        "yAcceleration":3000,
+        "zAcceleration":0
+        }
+    ],
+    
+    "layer":{
+        "size":0.01,
+        "shape":"rectangle",
+	"emitterMode":"surface",
+	"renderMode":"additive"
+    },
+    
+    "backgroundColor":[0.0, 0.0, 0.0, 1.0]
+}

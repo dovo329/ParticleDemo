@@ -30,7 +30,7 @@
       @"Sparkles",
       @"Fire",
       @"Smoke",
-      @"Firework",
+      @"Sparkler",
       @"Particle Man"
     ];
 }
