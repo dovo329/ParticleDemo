@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) CAEmitterCell *emitterCell;
 @property (nonatomic, strong) CAEmitterLayer *emitterLayer;
+@property (nonatomic, strong) NSArray *tableViewDataSource;
 
 @end
 
@@ -23,11 +24,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSLog(@"ViewParticleViewController plist is %@", self.pList);
+    //NSLog(@"ViewParticleViewController plist is %@", self.p
     
     self.emitterPreviewView.backgroundColor = [UIColor colorWithRed:0. green:0. blue:1. alpha:0.1];
     
-    self.emitterCell = [[CAEmitterCell alloc] init];
+    self.emitterCell = [CAEmitterCell emitterCell];
     UIImage *cellImage = [UIImage imageNamed:[self.pList objectForKey:@"contents"]];
     self.emitterCell.contents = (__bridge id _Nullable)(cellImage.CGImage);
     self.emitterCell.name = [self.pList objectForKey:@"name"];
@@ -63,6 +64,11 @@
     self.emitterCell.scale = [[self.pList objectForKey:@"scale"] doubleValue];
     self.emitterCell.scaleSpeed = [[self.pList objectForKey:@"scaleSpeed"] doubleValue];
     self.emitterCell.scaleRange = [[self.pList objectForKey:@"scaleRange"] doubleValue];
+    
+    self.tableViewDataSource = @[
+        self.emitterCell.name,
+        @"CAEmitterLayer is Fun",
+        @"Particle Power!"];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -82,12 +88,13 @@
     self.emitterLayer.emitterShape = kCAEmitterLayerRectangle;
     
     [self.emitterPreviewView.layer addSublayer:self.emitterLayer];
+    [self.view bringSubviewToFront:self.emitterPreviewView];
 }
 
 
 #pragma mark - UITableViewDataSource methods
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return self.tableViewDataSource.count;
 }
 
 
@@ -95,7 +102,7 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"paramCellId"];
     
-    cell.textLabel.text = (NSString *)[self.pList objectForKey:@"name"];
+    cell.textLabel.text = self.tableViewDataSource[indexPath.row];
     
     return cell;
 }
