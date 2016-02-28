@@ -12,7 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UIView *emitterPreviewView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic, strong) CAEmitterCell *emitterCell;
+@property (nonatomic, strong) NSMutableArray *emitterCellsArr;
 @property (nonatomic, strong) CAEmitterLayer *emitterLayer;
 @property (nonatomic, strong) NSArray *tableViewDataSource;
 
@@ -28,168 +28,132 @@
     
     self.emitterPreviewView.backgroundColor = [UIColor colorWithRed:0. green:0. blue:1. alpha:0.1];
     
-    [self initEmitterCell];
+    [self initEmitterCells];
     
     self.tableViewDataSource = @[
-        self.emitterCell.name,
-        @"CAEmitterLayer is Fun",
+        @"Cell Mania!",
+        @"CAEmitterLayer === Fun",
         @"Particle Power!"];
 }
 
 
--(void)initEmitterCell {
+-(void)initEmitterCells {
    
-    /*
-    contents
-
-    //contentsRect
-
-    //emitterCells
-
-
-    //enabled
-
-    color
-
-    redRange
-
-    greenRange
-
-    blueRange
-
-    alphaRange
-
-    redSpeed
-
-    greenSpeed
-
-    blueSpeed
-
-    alphaSpeed
-
-    magnificationFilter
-
-    minificationFilter
-
-    minificationFilterBias
-
-    scale
-
-    scaleRange
-
-    name
-
-    style
-
-    spin
-
-    spinRange
-
-    emissionLatitude
-
-    emissionLongitude
-
-    emissionRange
-
-    lifetime
-
-    lifetimeRange
-
-    birthRate
-
-    scaleSpeed
-
-    velocity
-
-    velocityRange
-
-    xAcceleration
-
-    yAcceleration
-
-    zAcceleration
-*/
+    self.emitterCellsArr = [NSMutableArray new];
     
-    self.emitterCell = [CAEmitterCell emitterCell];
+    NSArray *cellParamArr = [self.pList objectForKey:@"cells"];
     
-    UIImage *cellImage = [UIImage imageNamed:[self.pList objectForKey:@"contents"]];
-    self.emitterCell.contents = (__bridge id _Nullable)(cellImage.CGImage);
-    
-    NSArray *colorArr = [self.pList objectForKey:@"color"];
-    double red   = [colorArr[0] doubleValue];
-    double green = [colorArr[1] doubleValue];
-    double blue  = [colorArr[2] doubleValue];
-    double alpha = [colorArr[3] doubleValue];
-    self.emitterCell.color = [UIColor colorWithRed:red green:green blue:blue alpha:alpha].CGColor;
-    
-    self.emitterCell.redRange = [[self.pList objectForKey:@"redRange"] doubleValue];
-    
-    self.emitterCell.greenRange = [[self.pList objectForKey:@"greenRange"] doubleValue];
-    
-    self.emitterCell.blueRange = [[self.pList objectForKey:@"blueRange"] doubleValue];
-    
-    self.emitterCell.alphaRange = [[self.pList objectForKey:@"alphaRange"] doubleValue];
-    
-    self.emitterCell.redSpeed = [[self.pList objectForKey:@"redSpeed"] doubleValue];
-    
-    self.emitterCell.greenSpeed = [[self.pList objectForKey:@"greenSpeed"] doubleValue];
-    
-    self.emitterCell.blueSpeed = [[self.pList objectForKey:@"blueSpeed"] doubleValue];
-    
-    self.emitterCell.alphaSpeed = [[self.pList objectForKey:@"alphaSpeed"] doubleValue];
-    
-    self.emitterCell.scale = [[self.pList objectForKey:@"scale"] doubleValue];
-    
-    self.emitterCell.scaleRange = [[self.pList objectForKey:@"scaleRange"] doubleValue];
-    
-    self.emitterCell.name = [self.pList objectForKey:@"name"];
-    //NSLog(@"self.emitterCell.name=%@", self.emitterCell.name);
-    
-    self.emitterCell.spin = [[self.pList objectForKey:@"spin"] doubleValue];
-    
-    self.emitterCell.spinRange = [[self.pList objectForKey:@"spinRange"] doubleValue];
-    
-    self.emitterCell.emissionLongitude = [[self.pList objectForKey:@"emissionLatitude"] doubleValue];
-    
-    self.emitterCell.emissionLongitude = [[self.pList objectForKey:@"emissionLongitude"] doubleValue];
-    
-    self.emitterCell.emissionRange = [[self.pList objectForKey:@"emissionRange"] doubleValue];
-    
-    self.emitterCell.lifetime = [[self.pList objectForKey:@"lifetime"] doubleValue];
-    self.emitterCell.lifetimeRange = [[self.pList objectForKey:@"lifetimeRange"] doubleValue];
-    
-    self.emitterCell.birthRate = [[self.pList objectForKey:@"birthRate"] doubleValue];
-    
-    self.emitterCell.scaleSpeed = [[self.pList objectForKey:@"scaleSpeed"] doubleValue];
+    for (NSDictionary *cellDict in cellParamArr) {
+        
+        CAEmitterCell *cell = [CAEmitterCell emitterCell];
+        
+        UIImage *cellImage = [UIImage imageNamed:[cellDict objectForKey:@"contents"]];
+        cell.contents = (__bridge id _Nullable)(cellImage.CGImage);
+        
+        NSArray *colorArr = [cellDict objectForKey:@"color"];
+        double red   = [colorArr[0] doubleValue];
+        double green = [colorArr[1] doubleValue];
+        double blue  = [colorArr[2] doubleValue];
+        double alpha = [colorArr[3] doubleValue];
+        cell.color = [UIColor colorWithRed:red green:green blue:blue alpha:alpha].CGColor;
+        
+        cell.redRange = [[cellDict objectForKey:@"redRange"] doubleValue];
+        
+        cell.greenRange = [[cellDict objectForKey:@"greenRange"] doubleValue];
+        
+        cell.blueRange = [[cellDict objectForKey:@"blueRange"] doubleValue];
+        
+        cell.alphaRange = [[cellDict objectForKey:@"alphaRange"] doubleValue];
+        
+        cell.redSpeed = [[cellDict objectForKey:@"redSpeed"] doubleValue];
+        
+        cell.greenSpeed = [[cellDict objectForKey:@"greenSpeed"] doubleValue];
+        
+        cell.blueSpeed = [[cellDict objectForKey:@"blueSpeed"] doubleValue];
+        
+        cell.alphaSpeed = [[cellDict objectForKey:@"alphaSpeed"] doubleValue];
+        
+        cell.scale = [[cellDict objectForKey:@"scale"] doubleValue];
+        
+        cell.scaleRange = [[cellDict objectForKey:@"scaleRange"] doubleValue];
+        
+        cell.name = [cellDict objectForKey:@"name"];
+        //NSLog(@"cell.name=%@", cell.name);
+        
+        cell.spin = [[cellDict objectForKey:@"spin"] doubleValue];
+        
+        cell.spinRange = [[cellDict objectForKey:@"spinRange"] doubleValue];
+        
+        cell.emissionLongitude = [[cellDict objectForKey:@"emissionLatitude"] doubleValue];
+        
+        cell.emissionLongitude = [[cellDict objectForKey:@"emissionLongitude"] doubleValue];
+        
+        cell.emissionRange = [[cellDict objectForKey:@"emissionRange"] doubleValue];
+        
+        cell.lifetime = [[cellDict objectForKey:@"lifetime"] doubleValue];
+        cell.lifetimeRange = [[cellDict objectForKey:@"lifetimeRange"] doubleValue];
+        
+        cell.birthRate = [[cellDict objectForKey:@"birthRate"] doubleValue];
+        
+        cell.scaleSpeed = [[cellDict objectForKey:@"scaleSpeed"] doubleValue];
 
-    self.emitterCell.velocity = [[self.pList objectForKey:@"velocity"] doubleValue];
-    
-    self.emitterCell.velocityRange = [[self.pList objectForKey:@"velocityRange"] doubleValue];
+        cell.velocity = [[cellDict objectForKey:@"velocity"] doubleValue];
+        
+        cell.velocityRange = [[cellDict objectForKey:@"velocityRange"] doubleValue];
 
-    self.emitterCell.xAcceleration = [[self.pList objectForKey:@"xAcceleration"] doubleValue];
-    
-    self.emitterCell.yAcceleration = [[self.pList objectForKey:@"yAcceleration"] doubleValue];
-    
-    self.emitterCell.zAcceleration = [[self.pList objectForKey:@"zAcceleration"] doubleValue];
+        cell.xAcceleration = [[cellDict objectForKey:@"xAcceleration"] doubleValue];
+        
+        cell.yAcceleration = [[cellDict objectForKey:@"yAcceleration"] doubleValue];
+        
+        cell.zAcceleration = [[cellDict objectForKey:@"zAcceleration"] doubleValue];
+        
+        [self.emitterCellsArr addObject:cell];
+    }
 }
 
 
 -(void)initEmitterLayer {
     CGRect rect = self.emitterPreviewView.frame;
     
-    self.emitterLayer = [[CAEmitterLayer alloc] init];
-    self.emitterLayer.emitterCells = @[self.emitterCell];
+    NSDictionary *layerDict = [self.pList objectForKey:@"layer"];
     
-    self.emitterLayer.lifetime = self.emitterCell.lifetime;
+    self.emitterLayer = [[CAEmitterLayer alloc] init];
+    self.emitterLayer.emitterCells = self.emitterCellsArr;
+    
     [self.emitterPreviewView.layer addSublayer:self.emitterLayer];
-    double emitterDim = rect.size.height * .2;
+    
+    double sizeMult = [[layerDict objectForKey:@"size"] doubleValue];
+    double emitterDim = rect.size.height * sizeMult;
     
     self.emitterLayer.emitterPosition = CGPointMake(rect.size.width/2., rect.size.height/2.);
     
     self.emitterLayer.emitterSize = CGSizeMake(emitterDim, emitterDim);
-    //self.emitterLayer.emitterSize = CGSizeMake(self.emitterPreviewView.frame.size.width, self.emitterPreviewView.frame.size.height);
-    self.emitterLayer.emitterShape = kCAEmitterLayerRectangle;
+
+    NSString *shape = [layerDict objectForKey:@"shape"];
     
+    if ([shape isEqualToString:@"point"]) {
+        self.emitterLayer.emitterShape = kCAEmitterLayerPoint;
+
+    } else if ([shape isEqualToString:@"line"]) {
+        self.emitterLayer.emitterShape = kCAEmitterLayerLine;
+        
+    } else if ([shape isEqualToString:@"rectangle"]) {
+        self.emitterLayer.emitterShape = kCAEmitterLayerRectangle;
+        
+    } else if ([shape isEqualToString:@"cuboid"]) {
+        self.emitterLayer.emitterShape = kCAEmitterLayerCuboid;
+        
+    } else if ([shape isEqualToString:@"circle"]) {
+        self.emitterLayer.emitterShape = kCAEmitterLayerCircle;
+
+    } else if ([shape isEqualToString:@"sphere"]) {
+        self.emitterLayer.emitterShape = kCAEmitterLayerSphere;
+        
+    } else {
+        NSAssert(NO, @"Unknown emitter layer shape");
+        self.emitterLayer.emitterShape = kCAEmitterLayerRectangle;
+    }
+        
     [self.emitterPreviewView.layer addSublayer:self.emitterLayer];
     [self.view bringSubviewToFront:self.emitterPreviewView];
 }
