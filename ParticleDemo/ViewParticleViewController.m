@@ -28,7 +28,17 @@
     
     self.emitterPreviewView.backgroundColor = [UIColor colorWithRed:0. green:0. blue:1. alpha:0.1];
     
-    self.emitterCell = [CAEmitterCell emitterCell];
+    [self initEmitterCell];
+    
+    self.tableViewDataSource = @[
+        self.emitterCell.name,
+        @"CAEmitterLayer is Fun",
+        @"Particle Power!"];
+}
+
+
+-(void)initEmitterCell {
+        self.emitterCell = [CAEmitterCell emitterCell];
     UIImage *cellImage = [UIImage imageNamed:[self.pList objectForKey:@"contents"]];
     self.emitterCell.contents = (__bridge id _Nullable)(cellImage.CGImage);
     self.emitterCell.name = [self.pList objectForKey:@"name"];
@@ -64,14 +74,10 @@
     self.emitterCell.scale = [[self.pList objectForKey:@"scale"] doubleValue];
     self.emitterCell.scaleSpeed = [[self.pList objectForKey:@"scaleSpeed"] doubleValue];
     self.emitterCell.scaleRange = [[self.pList objectForKey:@"scaleRange"] doubleValue];
-    
-    self.tableViewDataSource = @[
-        self.emitterCell.name,
-        @"CAEmitterLayer is Fun",
-        @"Particle Power!"];
 }
 
--(void)viewDidAppear:(BOOL)animated {
+
+-(void)initEmitterLayer {
     CGRect rect = self.emitterPreviewView.frame;
     
     self.emitterLayer = [[CAEmitterLayer alloc] init];
@@ -89,6 +95,12 @@
     
     [self.emitterPreviewView.layer addSublayer:self.emitterLayer];
     [self.view bringSubviewToFront:self.emitterPreviewView];
+}
+
+
+-(void)viewDidAppear:(BOOL)animated {
+    
+    [self initEmitterLayer];
 }
 
 
