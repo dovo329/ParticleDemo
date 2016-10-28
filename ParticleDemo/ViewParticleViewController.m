@@ -105,7 +105,7 @@
         
         cell.spinRange = [[cellDict objectForKey:@"spinRange"] doubleValue];
         
-        cell.emissionLongitude = [[cellDict objectForKey:@"emissionLatitude"] doubleValue];
+        cell.emissionLatitude = [[cellDict objectForKey:@"emissionLatitude"] doubleValue];
         
         cell.emissionLongitude = [[cellDict objectForKey:@"emissionLongitude"] doubleValue];
         
